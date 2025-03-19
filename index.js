@@ -21,14 +21,14 @@ app.use(cors(corsOptions));
 
 // Post details
 
-app.post("/books", async(req,res)=>{
+app.post("/hotels", async(req,res)=>{
     try{
-        const newBook = new Book(req.body)
-        if(newBook){
-            await newBook.save()
-            res.status(200).json({message:"Book added successfully", book:newBook})
+        const newHotel = new Hotel(req.body)
+        if(newHotel){
+            await newHotel.save()
+            res.status(200).json({message:"Hotel added successfully", hotel:newHotel})
         }else{
-res.status(404).json({error:"Book details required"})
+res.status(404).json({error:"Hotel details required"})
         }
 
     }catch(error){
