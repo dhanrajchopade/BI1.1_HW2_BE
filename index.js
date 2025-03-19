@@ -32,7 +32,7 @@ res.status(404).json({error:"Hotel details required"})
         }
 
     }catch(error){
-        res.status(500).json({error:"Failed to add book.",error})
+        res.status(500).json({error:"Failed to add Hotel.",error})
     }
 })
 
