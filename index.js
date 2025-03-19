@@ -19,6 +19,24 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// Post details
+
+app.post("/books", async(req,res)=>{
+    try{
+        const newBook = new Book(req.body)
+        if(newBook){
+            await newBook.save()
+            res.status(200).json({message:"Book added successfully", book:newBook})
+        }else{
+res.status(404).json({error:"Book details required"})
+        }
+
+    }catch(error){
+        res.status(500).json({error:"Failed to add book.",error})
+    }
+})
+
+
 
 //  get all Hotel data
 
