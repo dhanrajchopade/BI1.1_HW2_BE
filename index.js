@@ -24,7 +24,7 @@ app.use(cors(corsOptions));
 app.delete("/hotels/:id", async(req,res)=>{
     try{
 const hotelId = req.params.id
-const deletedHotel = await Book.findByIdAndDelete(hotelId)
+const deletedHotel = await Hotel.findByIdAndDelete(hotelId)
 if(deletedHotel){
     res.status(200).json({message:"Hotel deleted successfully by Id."})
 }else{
