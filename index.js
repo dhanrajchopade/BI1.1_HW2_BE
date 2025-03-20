@@ -19,6 +19,25 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// Delete Hotel
+
+app.delete("/hotels/:id", async(req,res)=>{
+    try{
+const hotelId = req.params.id
+const deletedHotel = await Book.findByIdAndDelete(hotelId)
+if(deletedHotel){
+    res.status(200).json({message:"Hotel deleted successfully by Id."})
+}else{
+    res.status(404).json({error:"Hotel not found"})
+}
+    }catch(error){
+        res.status(500).json({error:"Failed to delete hotel.", error})
+    }
+})
+
+
+
+
 // Post details
 
 app.post("/hotels", async(req,res)=>{
